@@ -9,10 +9,11 @@ if (!window.indexedDB) {
         .then (response => response.json())
         .then (data => {
             console.log(data);
-            // if fetch succeded => online => update DB
+            // if fetch succeded => online => update DB     /!\ does not work... it clear indexedDB even when offline 
             // clear indexedDB
             let clearDb = window.indexedDB.deleteDatabase("toDoDb");
             
+            ///// vvv Need to be cleaned up vvv /////
             clearDb.onsuccess = (evt) => {
                 console.log("db deleted");
 
